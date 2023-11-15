@@ -8,4 +8,3 @@ export const catInfo = document.querySelector('.cat-info');
 // selectEl = new SlimSelect({
 //   select: '#selectElement'
 // })
-console.log(selectEl);
