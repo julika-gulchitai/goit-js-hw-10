@@ -1,0 +1,68 @@
+body,
+h1 {
+  margin: 0;
+}
+
+.breed-select {
+  display: block;
+  border-color: rgb(145, 98, 41, 0.6);
+  border-width: 1px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: rgb(110, 21, 21);
+  background-color: rgb(240, 235, 235);
+  padding: 5px;
+}
+
+.cat-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.error {
+  color: red;
+}
+.img-cat {
+  display: block;
+  margin-right: 25px;
+  object-fit: cover;
+  width: 420px;
+}
+
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(110, 21, 21);
+  margin-bottom: 20px;
+
+  size: 40px;
+}
+
+.cat-card {
+  display: flex;
+
+  background-color: rgb(249, 244, 229);
+  justify-content: center;
+  padding: 20px;
+}
+
+.cat-temperament {
+  font-style: italic;
+  color: rgb(145, 98, 41);
+  margin-top: auto;
+}
