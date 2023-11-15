@@ -4,33 +4,40 @@
 // Напиши функцію fetchBreeds(), яка виконує HTTP-запит і повертає проміс із масивом порід - результатом запиту. Винеси її у файл cat-api.js та зроби іменований експорт.
 // GET-запит на ресурс https://api.thecatapi.com/v1/breeds
 
-
+import SlimSelect from 'slim-select';
 import { selectEl, errorMessage, loaderMessage, catInfo } from "./refs";
 import { fetchBreeds, fetchCatByBreed, createMarkup } from "./cat-api";
-import SlimSelect from 'slim-select';
 
-// console.log(selectEl);
-// selectEl = new SlimSelect({
-//   select: '#selectElement'
-// })
-// console.log(selectEl);
+console.log(selectEl);
+selectEl = new SlimSelect({
+  select: '#selectElement'
+})
+ console.log(selectEl);
+
+ selectEl.id = "#single";
+ console.log(selectEl);
 
 let catBreedId = '';
 errorMessage.classList.add('is-hidden');
-loaderMessage.classList.add('is-hidden');
 let breedsList = [];
-fetchBreeds().then((res) => {
+
+document.addEventListener('DOMContentLoaded', loaderMesEvent);
+  loaderMessage.classList.remove('is-hidden'); 
+function loaderMesEvent() {
+
+    fetchBreeds()
+        .then((res) => {
     breedsList = res;
-    console.log(breedsList);
-    // console.log(breedsList);
     const options = res.map((item) => {
         return `<option value="${item.id}">${item.name}</option>`
     }).join('');
-// console.log(options);
     selectEl.innerHTML = options;
-})
+        })
+.finally(() =>   loaderMessage.classList.add('is-hidden') ) 
 
-selectEl.addEventListener('change', (ev) => {  catBreedId = ev.currentTarget.value ;
+selectEl.addEventListener('change', (ev) => {
+    loaderMessage.classList.add('is-hidden');
+ catBreedId = ev.currentTarget.value;
 
 console.log(catBreedId);
  
@@ -48,6 +55,7 @@ console.log(catBreedId);
         </div>`;
        
     catInfo.innerHTML = cat;
-    
     })});
 
+
+}
